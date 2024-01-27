@@ -1,0 +1,144 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --c-text: #141413;
+  --c-heading: #1f5766;
+  --c-link: #b2500d;
+
+  --clr-card-border: #d3d3d3;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #e0e9f1;
+  background: linear-gradient(to right, #f9c3a2, #e891a8);
+}
+
+.guide-section {
+  padding: 3rem 5%;
+}
+.guide-section h1 {
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.4rem;
+  line-height: 1.2;
+  color: #333333;
+}
+
+.cards-container {
+  display: grid;
+  gap: 1.5rem;
+  max-width: 1400px;
+  margin-inline: auto;
+}
+
+@media (min-width: 600px) {
+  .cards-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .cards-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.card {
+  padding: 1.5rem;
+  border: 1px solid var(--clr-card-border);
+  border-radius: 4px;
+  transition: all 240ms ease-in-out;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.card-label {
+  position: relative;
+}
+
+.card-label img.icon {
+  width: 25px;
+  border: 1px solid var(--clr-card-border);
+  border-radius: 2px;
+  background: white;
+  position: absolute;
+  box-sizing: content-box;
+  padding: 5px;
+  top: -0.7rem;
+  left: -2.6rem;
+}
+
+.card-label p {
+  margin-top: 0;
+  text-transform: uppercase;
+  color: var(--c-heading);
+  font-size: 0.8rem;
+  margin-bottom: 1em;
+  line-height: 1.1;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.card > p {
+  font-weight: 400;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  margin-top: 0.75em;
+  color: var(--c-text);
+}
+
+.card h3 {
+  margin-top: 0;
+}
+
+.card h3 a {
+  font-size: 1.2rem;
+  line-height: 1.2;
+  text-decoration: none;
+  color: var(--c-heading);
+}
+
+.card:hover {
+  box-shadow: 0 0 2px 0 rgb(83 128 132 / 40%),
+    0 2px 6px 3px rgb(83 128 132 / 50%);
+  border: none;
+}
+
+.link-container {
+  position: relative;
+  display: inline-block;
+  align-self: flex-start;
+  margin-top: auto;
+}
+
+.link-container a {
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.875rem;
+  line-height: 1.2;
+  color: var(--c-link);
+}
+
+.link-container::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: 0;
+  height: 2px;
+  background-color: var(--c-link);
+  transform: scale(0, 1);
+  transform-origin: left;
+  transition: transform ease-in-out 250ms;
+}
+
+.card:hover .link-container::after {
+  transform: scale(1, 1);
+}
